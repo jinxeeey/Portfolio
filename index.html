@@ -264,28 +264,39 @@
                 </div>
                 <button onclick="sendMessage();" class="form-control unique-button" id="send" type="submit">Send</button>
               </form>
-              <script>
-                function sendMessage(){
-                  (function(){
-                    emailjs.init("QaYO5zKxwrfbutntB");
-                    })(); 
-                    var serviceID = "service_t00olvi";
-                    var templateID = "template_yhlxc4p";
-
-                    var params ={
-                      name: document.querySelector("name").value,
-                      email: document.querySelector("email").value,
-                      phone: document.querySelector("phone").value,
-                      message: document.querySelector("message").value
-                    };
-                    emailjs.sendForm(serviceID, templateID, params)
-                    .then( res => {
-                      alert('Thank You,'+ params['name']+'! Your message has been sent .'+ res);
-                    })
-                    .catch();
-                  }
-              </script>
             </div>
+            <script src="https://smtpjs.com/v3/smtp.js">
+            </script>
+            <script>
+              function sendMessage() {
+                // Define your functionality here
+                console.log("Sending message...");
+                // Add any additional functionality you want to perform when the button is clicked
+              }
+            </script>
+            
+            <!-- Fix the event listener -->
+            <script>
+              var btn = document.getElementById('send'); // Use 'send' instead of 'btn' as 'send' is the ID of the button
+              btn.addEventListener('click', function(event) { // Add 'event' parameter to the function
+                event.preventDefault(); // Use 'event' to access the event object and prevent the default form submission behavior
+                var name = document.getElementById('name').value;
+                var E-mail = document.getElementById('email').value;
+                var Phone = document.getElementById('phone').value;
+                var message = document.getElementById('message').value;
+                var body = 'name: ' + name + '<br/> Email: ' + email + '<br/> phone :' + phone + '<br/> message: ' + message + 
+                // Add any additional functionality you want to perform when the button is clicked
+                                  Email.send({
+                      SecureToken : "0509c0c4-a128-4fe5-b446-c44df3cee534",
+                      To : 'youcefrabouhi@gmail.com',
+                      From : "rabouhi71@gmail.com",
+                      Subject : "Portfolio Message",
+                      Body : body
+                  }).then(
+                    message => alert(message)
+                  );
+              });
+            </script>
           </div>
         </div>
       </div>
