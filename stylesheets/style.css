@@ -156,7 +156,18 @@ nav#main.affix ul ul.dropdown li { background: #fff; }
 
 .icon { display: inline-block; height: 45px; width: 45px; line-height: 45px; vertical-align:middle ; text-align: center; border: 1px solid #ddd; border: 1px solid rgba(0, 0, 0, 0.2); color: #999; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -o-transition: all 0.3s; transition: all 0.3s; }
 .icon:hover { color: #000; text-decoration: none; border: 1px solid #555; -webkit-box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1); -ms-box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1); box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1); }
-
+button.form-control.unique-button {
+  margin-bottom: 0;
+  background: #000;
+  color: #fff;
+  border: 0;
+  font-family: "Oswald", Arial, sans-serif;
+  text-transform: uppercase;
+  -webkit-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
+}
 .form-control-feedback { display: none; }
 
 .has-feedback .form-control-feedback { display: inline-block; margin-top: -24px; }

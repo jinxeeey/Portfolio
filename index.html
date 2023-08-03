@@ -234,36 +234,58 @@
             <p class='small'>
               Feel free to reach out to me,for any collaborations or inquiries contact me and let's bring your creative ideas to life!
             </p>
-            <div class='social-icons'>
-              <a class='icon fa-brands fa-linkedin-in' href='https://www.linkedin.com/in/jinxeeey/'target="_blank"></a>
-              <a class='icon fa-brands fa-behance' href='https://www.behance.net/jinxeeey'target="_blank"></a>
-              <a class='icon fa-brands fa-facebook-f' href='https://www.facebook.com/Jinxeeey'target="_blank"></a>
-              <a class='icon fa-brands fa-instagram' href='https://www.instagram.com/jinxeeeey/'target="_blank"></a>
-              <a class='icon fa-brands fa-discord' href='https://discord.com/users/732345914408042658' target="_blank"></a>
+              <div class='social-icons'>
+                <a class='icon fa-brands fa-linkedin-in' href='https://www.linkedin.com/in/jinxeeey/'target="_blank"></a>
+                <a class='icon fa-brands fa-behance' href='https://www.behance.net/jinxeeey'target="_blank"></a>
+                <a class='icon fa-brands fa-facebook-f' href='https://www.facebook.com/Jinxeeey'target="_blank"></a>
+                <a class='icon fa-brands fa-instagram' href='https://www.instagram.com/jinxeeeey/'target="_blank"></a>
+                <a class='icon fa-brands fa-discord' href='https://discord.com/users/732345914408042658' target="_blank"></a>
+              </div>
             </div>
-          </div>
-          <div class='col-md-8'>
-            <h3>
-              Get in touch
-            </h3>
-            <form id='form' name='form'>
-              <div class='form-group'>
-                <input class='form-control' id='name' name='name' placeholder='Name' type='text'>
-                <span class='glyphicon glyphicon-remove form-control-feedback'></span>
-              </div>
-              <div class='form-group'>
-                <input class='form-control' id='email' name='email' placeholder='E-mail' type='email'>
-                <span class='glyphicon glyphicon-remove form-control-feedback'></span>
-              </div>
-              <div class='form-group'>
-                <input class='form-control' id='phone' name='phone' placeholder='Phone' type='number'>
-              </div>
-              <div class='form-group'>
-                <textarea class='form-control' id='message' name='message' placeholder='Message' type='text'></textarea>
-                <span class='glyphicon glyphicon-remove form-control-feedback'></span>
-              </div>
-              <input class='form-control' id='send' type='submit' value='Send'>
-            </form>
+            <div class='col-md-8'>
+              <h3>
+                Get in touch
+              </h3>
+              <form id='form' name='form'>
+                <div class='form-group'>
+                  <input class='form-control' id='name' name='name' placeholder='Name' type='text'>
+                  <span class='glyphicon glyphicon-remove form-control-feedback'></span>
+                </div>
+                <div class='form-group'>
+                  <input class='form-control' id='email' name='email' placeholder='E-mail' type='email'>
+                  <span class='glyphicon glyphicon-remove form-control-feedback'></span>
+                </div>
+                <div class='form-group'>
+                  <input class='form-control' id='phone' name='phone' placeholder='Phone' type='number'>
+                </div>
+                <div class='form-group'>
+                  <textarea class='form-control' id='message' name='message' placeholder='Message' type='text'></textarea>
+                  <span class='glyphicon glyphicon-remove form-control-feedback'></span>
+                </div>
+                <button onclick="sendMessage();" class="form-control unique-button" id="send" type="submit">Send</button>
+              </form>
+              <script>
+                function sendMessage(){
+                  (function(){
+                    emailjs.init("QaYO5zKxwrfbutntB");
+                    })(); 
+                    var serviceID = "service_t00olvi";
+                    var templateID = "template_yhlxc4p";
+
+                    var params ={
+                      name: document.querySelector("name").value,
+                      email: document.querySelector("email").value,
+                      phone: document.querySelector("phone").value,
+                      message: document.querySelector("message").value
+                    };
+                    emailjs.sendForm(serviceID, templateID, params)
+                    .then( res => {
+                      alert('Thank You,'+ params['name']+'! Your message has been sent .'+ res);
+                    })
+                    .catch();
+                  }
+              </script>
+            </div>
           </div>
         </div>
       </div>
